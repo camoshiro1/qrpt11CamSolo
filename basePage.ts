@@ -58,9 +58,9 @@ export class BasePage {
         const element = await this.getElement(elementBy);
         await this.driver.executeScript('arguments[0].scrollIntoView(true);', element);
     }
-    async scrollDown() {
-        await this.driver.executeScript("windows.scrollTo(0,document.body.scrollHeight)");
-        await this.driver.sleep(1000);
-    }
+    //async scrollDown() {
+    // await this.driver.executeScript("windows.scrollTo(0,document.body.scrollHeight)");
+    //await this.driver.sleep(1000);
+    //}
 };
 
