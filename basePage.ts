@@ -50,6 +50,17 @@ export class BasePage {
         await this.driver.findElement(elementBy).clear()
         await this.driver.findElement(elementBy).sendKeys(Keys)
     };
-
+    async clickWithJavaScript(elementBy: By): Promise<void> {
+        const element = await this.getElement(elementBy);
+        await this.driver.executeScript('arguments[0].click();', element);
+    };
+    async scrollIntoView(elementBy: By): Promise<void> {
+        const element = await this.getElement(elementBy);
+        await this.driver.executeScript('arguments[0].scrollIntoView(true);', element);
+    }
+    async scrollDown() {
+        await this.driver.executeScript("windows.scrollTo(0,document.body.scrollHeight)");
+        await this.driver.sleep(1000);
+    }
 };
 
